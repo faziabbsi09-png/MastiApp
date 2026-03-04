@@ -227,24 +227,31 @@ const list = document.querySelector(".menu-list") || document.querySelector(".se
 // Ye line lazmi likhein taake page load hote hi power mil jaye
 wsetTimeout(setupManagerPower, 600);
   // --- NAYA FIREBASE CODE YAHAN SE SHURU ---
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+<script>
   const firebaseConfig = {
     apiKey: "AIzaSyDY2bi9GtApPwiOmgaP6R1r3mzN0tW6frY",
     authDomain: "myliveparty.firebaseapp.com",
     projectId: "myliveparty",
-    storageBucket: "myliveparty.firebasestorage.app",
-    messagingSenderId: "183457750188",
-    appId: "1:183457750188:web:10170de1b0854d27df9309",
-    databaseURL: "https://myliveparty-default-rtdb.firebaseio.com"
+    databaseURL: "https://myliveparty-default-rtdb.firebaseio.com",
+    appId: "1:183457750188:web:10170de1b0854d27df9309"
   };
-
-  // Initialize Firebase Connection
-  if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-  }
+  if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
-  console.log("Masti VIP Database Connected! ✅");
-  // --- NAYA FIREBASE CODE YAHAN KHATAM ---
 
-    </script>
+  function setupManagerPower() {
+    const list = document.querySelector(".menu-list") || document.querySelector(".settings-list");
+    if (list) {
+      const bossItem = document.createElement("div");
+      bossItem.className = "s-item";
+      bossItem.style = "background:rgba(255,215,0,0.1); border:1px solid gold; margin:10px; padding:15px; border-radius:10px;";
+      bossItem.innerHTML = `<span style="color:gold; font-weight:bold;">👑 MASTER MANAGER PANEL</span>`;
+      bossItem.onclick = () => alert("Manager Controls Opening...");
+      list.prepend(bossItem);
+    }
+  }
+  setTimeout(setupManagerPower, 1000);
+</script>
 </body>
 </html>
