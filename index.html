@@ -214,8 +214,8 @@ function banUser() {
 function setupManagerPower() {
     let role = "manager"; 
     if(role === "manager") {
-const list = document.querySelector(".menu-list");        const bossItem = document.createElement("div");
-        bossItem.className = "s-item";
+
+const list = document.querySelector(".menu-list") || document.querySelector(".settings-list") || document.querySelector("div[style*='background: #12161e']");        bossItem.className = "s-item";
         bossItem.style.background = "rgba(255, 215, 0, 0.1)";
         bossItem.style.border = "1px solid gold";
         bossItem.innerHTML = `<span style="color:gold; font-weight:bold;">👑 MASTER MANAGER PANEL</span><span style="color:gold;">BOSS ></span>`;
@@ -223,7 +223,7 @@ const list = document.querySelector(".menu-list");        const bossItem = docum
         list.prepend(bossItem);
     }
 }
-
+const list = document.querySelector(".menu-list") || document.querySelector(".settings-list") || document.querySelector("div[style*='background: #12161e']");
 // Ye line lazmi likhein taake page load hote hi power mil jaye
 wsetTimeout(setupManagerPower, 600);
   // --- NAYA FIREBASE CODE YAHAN SE SHURU ---
