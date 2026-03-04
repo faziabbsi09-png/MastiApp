@@ -226,7 +226,25 @@ function setupManagerPower() {
 }
 
 // Ye line lazmi likhein taake page load hote hi power mil jaye
-setTimeout(setupManagerPower, 600);
+wsetTimeout(setupManagerPower, 600);
+  // --- NAYA FIREBASE CODE YAHAN SE SHURU ---
+  const firebaseConfig = {
+    apiKey: "AIzaSyDY2bi9GtApPwiOmgaP6R1r3mzN0tW6frY",
+    authDomain: "myliveparty.firebaseapp.com",
+    projectId: "myliveparty",
+    storageBucket: "myliveparty.firebasestorage.app",
+    messagingSenderId: "183457750188",
+    appId: "1:183457750188:web:10170de1b0854d27df9309",
+    databaseURL: "https://myliveparty-default-rtdb.firebaseio.com"
+  };
+
+  // Initialize Firebase Connection
+  if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+  }
+  const db = firebase.database();
+  console.log("Masti VIP Database Connected! ✅");
+  // --- NAYA FIREBASE CODE YAHAN KHATAM ---
 
     </script>
 </body>
