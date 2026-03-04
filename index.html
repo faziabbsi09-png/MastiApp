@@ -214,8 +214,7 @@ function banUser() {
 function setupManagerPower() {
     let role = "manager"; 
     if(role === "manager") {
-        const list = document.querySelector("#pg-me .settings-list");
-        const bossItem = document.createElement("div");
+const list = document.querySelector(".menu-list");        const bossItem = document.createElement("div");
         bossItem.className = "s-item";
         bossItem.style.background = "rgba(255, 215, 0, 0.1)";
         bossItem.style.border = "1px solid gold";
