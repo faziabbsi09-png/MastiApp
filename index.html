@@ -253,5 +253,51 @@ wsetTimeout(setupManagerPower, 600);
   }
   setTimeout(setupManagerPower, 1000);
 </script>
+<script>
+  // Authority Configuration
+  const userAuthority = {
+    uid: "1834577",
+    role: "super_admin" // Yahan "super_admin", "bd", ya "manager" likh sakte hain
+  };
+
+  function setupAuthorityPanels() {
+    const list = document.querySelector(".menu-list");
+    if (!list) return;
+
+    // 1. Super Admin Panel
+    if (userAuthority.role === "super_admin") {
+      createPanelItem(list, "🔴 SUPER ADMIN CONTROL", "red", () => {
+        const amount = prompt("Enter Coins to Add to User ID:");
+        if(amount) alert(amount + " Coins Added by Super Admin!");
+      });
+    }
+
+    // 2. BD (Business Development) Panel
+    if (userAuthority.role === "super_admin" || userAuthority.role === "bd") {
+      createPanelItem(list, "🏢 BD AGENCY MANAGEMENT", "deepskyblue", () => {
+        alert("Opening Agency Reports & Host Statistics...");
+      });
+    }
+
+    // 3. Master Manager Panel
+    if (["super_admin", "bd", "manager"].includes(userAuthority.role)) {
+      createPanelItem(list, "👑 MASTER MANAGER PANEL", "gold", () => {
+        alert("Opening Room Controls & Event Manager...");
+      });
+    }
+  }
+
+  // Helper function to create stylish buttons
+  function createPanelItem(target, text, color, action) {
+    const div = document.createElement("div");
+    div.className = "s-item";
+    div.style = `border: 1px solid ${color}; background: rgba(0,0,0,0.2); margin: 8px; border-radius: 10px; color: ${color}; font-weight: bold;`;
+    div.innerHTML = `${text} <span>></span>`;
+    div.onclick = action;
+    target.prepend(div);
+  }
+
+  window.onload = () => { setTimeout(setupAuthorityPanels, 1200); };
+</script>
 </body>
 </html>
